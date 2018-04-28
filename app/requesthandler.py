@@ -9,7 +9,7 @@ def index():
 
 @app.route('/addbook',methods=['POST'])
 def addBook():
-	return logic.addNewBook(request.json)
+	return logic.addNewBook(request)
 
 
 @app.route('/getbooklist', methods=['GET'])
@@ -18,13 +18,14 @@ def viewBookList():
 
 @app.route('/deletebook', methods=['POST'])
 def deleteBook():
-	return logic.removeBook(request.json)
+	return logic.removeBook(request)
 
-'''
-@app.route('/changeTag', methods=['PATCH'])
+
+@app.route('/changetag', methods=['POST'])
 def changeTag():
+	return logic.updateBookTags(request)
 
-@app.route('/viewbookswithfilter',methods=['GET'])
+
+@app.route('/getbookslistwithfilter',methods=['GET'])
 def viewBookWithFilter():
-
-'''
+	return logic.getBookListByFilter(request)
